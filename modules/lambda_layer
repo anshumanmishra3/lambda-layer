@@ -1,4 +1,4 @@
-resource "aws_lambda_layer_version" "layer" {
+resource "aws_lambda_layer_version" "lambda_layer" {
   filename   = "layer.zip"
   layer_name = var.layer_name
   source_code_hash = filebase64sha256("layer.zip")
