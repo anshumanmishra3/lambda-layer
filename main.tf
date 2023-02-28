@@ -1,10 +1,15 @@
-resource "aws_lambda_layer_version" "layer" {
-  filename   = "layer.zip"
-  layer_name = var.layer_name
-  source_code_hash = filebase64sha256("layer.zip")
-  
-  s3_bucket = var.s3_bucket
-  s3_key    = var.s3_key
+module "lambda_layer_s3" {
+  source = "./modules/lambda_layer"
 
+  create_layer = true
+
+  layer_name          = "lambda-layer-s3"
+  description         = "Sagemaker lambda layer (deployed from S3)"
   compatible_runtimes = ["python3.8"]
+
+#   source_path = "../src/lambda-layer"
+
+  store_on_s3 = true
+  s3_bucket   = "layers49"
+  s3_key = "layer.zip"
 }
