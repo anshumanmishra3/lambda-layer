@@ -10,16 +10,5 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-  default_tags {
-    tags = {
-      platform    = var.platform
-      project     = var.project
-      environment = local.environment
-      cost_centre  = var.cost_centre
-      code_repo    = var.code_repo
-      name         = var.test_name
-      
-    }
-  }
 }
 
