@@ -1,7 +1,7 @@
 variable "layer_name" {
   type        = string
   description = "The name of the Lambda Layer to create"
-  default = 'layer'
+  default = "layer"
 }
 
 variable "s3_bucket" {
